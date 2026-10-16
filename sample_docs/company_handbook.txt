@@ -1,0 +1,29 @@
+Acme Corp Employee Handbook - 2024
+
+Welcome to Acme Corp!
+
+Section 1: Leave Policy
+- Annual Leave: 24 days per year, accrued monthly. Unused leave can be carried over up to 5 days.
+- Sick Leave: 12 days per year, requires medical certificate if >2 days consecutive.
+- Remote Work: Up to 3 days per week remote after probation (3 months). Core hours 10am-3pm must be online.
+
+Section 2: Benefits
+- Health Insurance: Comprehensive plan covering employee + spouse + 2 children. Dental up to $1000/year.
+- Learning Budget: $1500 per year for courses, books, and conferences.
+- Parental Leave: 16 weeks paid for primary caregiver, 4 weeks for secondary.
+
+Section 3: IT Security
+- Passwords must be 12+ characters and changed every 90 days.
+- MFA is mandatory for all internal tools.
+- Do not share customer data via personal email or unencrypted channels. Report phishing to security@acme.corp.
+
+Section 4: Expense Reimbursement
+- Submit via Expensify within 30 days.
+- Manager approval required for >$500.
+- Travel: Economy flights for <6 hours, Business for longer.
+
+Section 5: Code of Conduct
+- Treat everyone with respect. Zero tolerance for harassment.
+- Office hours: 9am-6pm, flexible with manager approval.
+
+For questions, contact hr@acme.corp or visit the intranet.

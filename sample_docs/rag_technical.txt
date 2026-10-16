@@ -1,0 +1,37 @@
+Retrieval-Augmented Generation (RAG) Technical Guide
+
+1. Chunking Strategy
+Documents are split into overlapping chunks to preserve context. Recommended chunk_size 500-800 tokens, overlap 100-150 tokens. Overlap prevents cutting a fact across two chunks. Use sentence-aware splitting: prefer to cut at sentence boundaries (". ", "\n\n").
+
+2. Embeddings
+Each chunk is converted to a vector via an embedding model. Options:
+- TF-IDF (lightweight, no model download, good for demo)
+- SentenceTransformers (all-MiniLM-L6-v2, 384-dim, strong semantic search)
+- OpenAI text-embedding-3-small (1536-dim, hosted)
+Cosine similarity is used to rank chunks vs query.
+
+3. Vector Store
+Store vectors in a database for fast k-NN search. Candidates: FAISS, ChromaDB, Pinecone, Qdrant. For small projects (<10k chunks), in-memory numpy + sklearn is sufficient.
+
+4. Retrieval
+Given a user query, embed it and retrieve top_k=3-5 chunks with highest similarity. Threshold filtering (e.g., score <0.2) avoids irrelevant context.
+
+5. Generation
+Prompt template:
+"You are a helpful assistant. Answer ONLY using the context below. Cite sources.
+Context:
+{retrieved_chunks}
+Question: {query}
+Answer:"
+If context is insufficient, the model should say "I don't know based on the provided documents."
+
+6. Evaluation
+Metrics: Faithfulness (is answer grounded?), Answer Relevance, Context Recall. Use RAGAS or manual review.
+
+7. Production Tips
+- Re-rank retrieved chunks with a cross-encoder for higher precision.
+- Add metadata filtering (e.g., filename, date).
+- Cache embeddings.
+- Handle PDFs with OCR if scanned.
+
+Example: Query "How many leave days per year?" should retrieve Handbook Section 1 and answer "24 days annual leave" with citation [company_handbook.txt].

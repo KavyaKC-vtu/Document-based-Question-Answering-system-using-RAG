@@ -1,0 +1,32 @@
+# AI-Powered Document QA — RAG
+# Streamlit Community Cloud compatible — only packages actually imported by app.py / utils/
+# Install: pip install -r requirements.txt
+# Python 3.12
+
+# Web UI
+streamlit>=1.40.2
+
+# PDF extraction (PyMuPDF)
+PyMuPDF>=1.24.12
+
+# Multi-format document support (actually imported in utils/document_processor.py)
+python-docx>=1.1.2
+python-pptx>=0.6.21
+pandas>=2.2.3
+
+# Env (app.py + utils/rag_pipeline.py use load_dotenv + os.getenv)
+python-dotenv>=1.0.1
+
+# LLM (utils/rag_pipeline.py uses groq.Groq)
+groq>=0.11.0
+
+# Chunking (utils/document_processor.py uses langchain_text_splitters)
+langchain-text-splitters>=0.3.6
+
+# Embeddings (utils/embeddings.py uses sentence_transformers + torch + numpy)
+sentence-transformers>=3.3.1
+torch>=2.4.1
+numpy>=1.26.4
+
+# Vector DB (utils/vector_store.py uses faiss)
+faiss-cpu>=1.8.0.post1
